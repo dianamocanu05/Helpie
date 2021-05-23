@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Roboto:wght@900&display=swap');
+.Contact > h1{
+    text-align: center;
+    font-family: Roboto;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+.TeamCard{
+    width: 90%;
+    height: 90%;
+    background-color: rgb(36, 37, 42);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: hsl(230, 39%, 90%);
+    border-radius: 5px;
+    margin-bottom: 30px;
+    font-family: Nunito;
+    letter-spacing: 1px;
+}
+.TeamCard > h2{
+
+}
+.ContactPage{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: 300px;
+    margin: 10px;
+}

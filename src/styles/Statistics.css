@@ -1,0 +1,105 @@
+#paginaStatistics{
+    display: grid;
+    grid-template-rows: 90% 10%;
+    background-color: white;
+}
+#graficProfile{
+    width: 90%;
+    margin-left: 5%;
+}
+#refreshSt
+{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonSt {
+	box-shadow: 3px 4px 0px 0px #8a2a21;
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	background-color:#c62d1f;
+	border-radius:18px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+}
+.buttonSt:hover {
+	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	background-color:#f24437;
+}
+.buttonSt:active {
+	position:relative;
+	top:1px;
+}
+
+@media screen and (max-width: 800px){
+    .buttonSt {
+        box-shadow: 3px 4px 0px 0px #8a2a21;
+        background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+        background-color:#c62d1f;
+        border-radius:18px;
+        border:1px solid #d02718;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:12px;
+        padding:7px 25px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #810e05;
+    }
+    .buttonSt:hover {
+        background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+        background-color:#f24437;
+    }
+    .buttonSt:active {
+        position:relative;
+        top:1px;
+    }
+
+    #paginaStatistics{
+        display: grid;
+        grid-template-rows: 85% 15%;
+        background-color: white;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+    .buttonSt {
+        box-shadow: 3px 4px 0px 0px #8a2a21;
+        background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+        background-color:#c62d1f;
+        border-radius:18px;
+        border:1px solid #d02718;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:12px;
+        padding:5px 15px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #810e05;
+    }
+    .buttonSt:hover {
+        background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+        background-color:#f24437;
+    }
+    .buttonSt:active {
+        position:relative;
+        top:1px;
+    }
+
+    #paginaStatistics{
+        display: grid;
+        grid-template-rows: 82% 18%;
+        background-color: white;
+    }
+
+}

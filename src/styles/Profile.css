@@ -1,0 +1,250 @@
+#paginaProfile{
+    height: 100vw;
+    background-color: black;
+    display: grid;
+    grid-template-rows: 40% 60%;
+    grid-gap: 10px;
+    border-style: solid;
+    border-width: 10px;
+}
+
+#date{
+    background-color: purple;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    align-content: center;
+    text-align: center;
+    grid-template-rows: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#descriere{
+    display: grid;
+    grid-template-rows: 60% 40%;
+    text-align: center;
+    background-color: brown;
+}
+
+.detalii{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    color: aqua;
+    font-size: 25px;
+}
+
+.epilepsy{
+    animation: color-change 4s infinite;
+    font-size: 30px;
+}
+      
+  @keyframes color-change {
+    0% {color: black;}
+      10% {color: orange;}
+      20% {color: yellow;}
+      30% {color: #80ff00;}
+      40% {color: #00ff00;}
+      50% {color: #00ff80;}
+      60% {color: #00ffff;}
+      70% {color: #0080ff;}
+      80% {color: blue;}
+      90% {color: #8000ff;}
+      100% {color: black;}
+  }
+
+#aptitudini{
+    font-size: 30px;
+}
+
+#disponibilitate{
+    font-size: 30px;
+}
+
+#lista{
+    list-style-type:none;
+}
+.titlu{
+    margin-top: 2vw;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+#poza{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.gridpoza{
+    display: grid;
+    height: 100%;
+    width: 100%;
+}
+
+#despre{
+    margin-top: 10vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.butoaneProfile {
+	box-shadow: 3px 4px 0px 0px #8a2a21;
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	background-color:#c62d1f;
+	border-radius:18px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+}
+.butoaneProfile:hover {
+	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	background-color:#f24437;
+}
+.butoaneProfile:active {
+	position:relative;
+	top:1px;
+}
+
+#centerx2Profile{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.spatiuPr{
+    display:grid;
+    justify-content: center;
+    align-content: center;
+}
+
+@media screen and (max-width: 1000px){
+    .detalii{
+        font-size: 20px;
+    }
+
+    #disponibilitate{
+        font-size: 20px;
+    }
+
+    #aptitudini{
+        font-size: 20px;
+    }
+
+    #stergereCont{
+        font-size: 20px;
+    }
+    input{
+        width: 75px;
+    }
+
+    #graficProfile{
+        margin-top: 40px;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+}
+
+@media screen and (max-width: 750px){
+    .detalii{
+        font-size: 15px;
+    }
+
+    #disponibilitate{
+        font-size: 15px;
+    }
+
+    #aptitudini{
+        font-size: 15px;
+    }
+
+    #stergereCont{
+        font-size: 15px;
+    }
+    input{
+        width: 60px;
+    }
+
+    #graficProfile{
+        margin-top: 30px;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+
+    .butoaneProfile {
+        box-shadow: 3px 4px 0px 0px #8a2a21;
+        background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+        background-color:#c62d1f;
+        border-radius:18px;
+        border:1px solid #d02718;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:12px;
+        padding:7px 12px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #810e05;
+    }
+    .butoaneProfile:hover {
+        background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+        background-color:#f24437;
+    }
+    .butoaneProfile:active {
+        position:relative;
+        top:1px;
+    }
+
+    #despre{
+        margin-top: 7vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media screen and (max-width: 450px){
+    .detalii{
+        font-size: 15px;
+    }
+
+    #disponibilitate{
+        font-size: 15px;
+    }
+
+    #aptitudini{
+        font-size: 15px;
+    }
+
+    #stergereCont{
+        font-size: 15px;
+    }
+    input{
+        width: 40px;
+    }
+
+    #graficProfile{
+        margin-top: 20px;
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    #despre{
+        margin-top: 0vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
