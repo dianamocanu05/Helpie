@@ -79,9 +79,10 @@ export default class Login extends Component {
     });
     const response = await fetch(request);
     const data = await response.json();
-    if (data.success == 1) {
+    if (data.success === 1) {
       //succes
       localStorage.setItem('token', data.token);
+      localStorage.setItem('user',data.username)
       this.props.LogIn(1);
       this.setRedirect();
     } else {

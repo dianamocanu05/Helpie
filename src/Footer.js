@@ -6,7 +6,7 @@ import "./styles/Footer.css"
 
 const Footer = (props) => {
     return (
-      <footer>
+      <footer class="footer_overview">
         <Media/>
         <Contact/>
         <SiteMap isLoggedIn={props.isLoggedIn}/>

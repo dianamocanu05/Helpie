@@ -13,10 +13,10 @@ export default props => {
             <Link className="menu-item" to="/">
                 Home
             </Link>
-            <Link className="menu-item" to="/help">
+            <Link className="menu-item" to="/needer/help">
                 Help
             </Link>
-            <Link className="menu-item" to="/form">
+            <Link className="menu-item" to="/needer/form">
                 Complete Form
             </Link>
             <p> Hello, {username}</p>   

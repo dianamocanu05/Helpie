@@ -1,6 +1,7 @@
 import React from "react"
-import styles from "./styles/HomePage.css"
+import "./styles/HomePage.css"
 import { Bar } from 'react-chartjs-2';
+import {Link} from "react-router-dom";
 
 const linie1 = {
     labels: ['Cereri disponibile', 'Binefacatori disponibili'],
@@ -45,7 +46,7 @@ const HomePage = () => {
            
 
             <div id="beneficiar">
-                <a href="beneficiar.js" className="button"> Beneficiar </a>
+                <Link to="/needer" className="button"> Beneficiar </Link>
             </div>
 
             <div id="binefacator">

@@ -16,20 +16,20 @@ const Overview = () => {
             <div id="articole">
 
                 <div >
-                    <Link to="/ContactPage" id="glow">Who are we?</Link>
+                    <Link to="/overview/ContactPage" id="glow">Who are we?</Link>
                 </div>
                 <div >
-                    <Link to="/motivation" id="electric">Why are we doing this?</Link>
+                    <Link to="/overview/motivation" id="electric">Why are we doing this?</Link>
                 </div>
 
                 <div id="dublu">
-                    <Link to="/join" id="power">Why you should join us?</Link>
+                    <Link to="/overview/join" id="power">Why you should join us?</Link>
                 </div>
 
             </div>
 
             <div>
-                <Link to="/" id="jumping">
+                <Link to="/overview" id="jumping">
                     <span>H</span>
                     <span>e</span>
                     <span>l</span>

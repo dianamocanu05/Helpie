@@ -21,7 +21,7 @@ function Footer() {
 	);
 	//code
 	return (
-		<div class="footer">
+		<div class="footerNeeder">
 			<div class="container">
 				<section class="Info">
 					<div class="title1">
@@ -30,10 +30,10 @@ function Footer() {
 						<ColoredLine color="#fc5183" class="hrDown" />
 					</div>
 					<article>
-						<Link to= '/aboutUs' >Despre noi și munca noastră </Link>
+						<Link to= '/needer/aboutUs' >Despre noi și munca noastră </Link>
 						</article>
 					<article>
-					 	<Link to='/faqpage'>Întrebări frecvente</Link>
+					 	<Link to='/needer/faqpage'>Întrebări frecvente</Link>
 					</article>
 				</section>
 				<section class="Contact">

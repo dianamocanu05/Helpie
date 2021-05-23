@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles/Join.css"
+import "./styles/Join.css";
 
 const Join = () => {
     return (

@@ -1,5 +1,4 @@
-import React, { Component, useEffect } from 'react';
-import { render } from 'react-dom';
+import React from 'react';
 import { COUNTRIES } from './countries';
 import './style-tags.css';
 import { WithContext as ReactTags } from 'react-tag-input';
@@ -8,7 +7,7 @@ const suggestions = COUNTRIES.map((country) => {
     id: country,
     text: country,
   }
-})
+}) 
 
 const KeyCodes = {
   comma: 188,

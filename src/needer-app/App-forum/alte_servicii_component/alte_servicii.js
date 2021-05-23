@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import Tags from "./tags";
-import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import CantitateInput from "./cantitateInput";
 import ControlledCarousel from '../../carousel/carousel.js';
@@ -17,18 +16,22 @@ function AlteServicii() {
 
     const sendItemsToDB = (values) => {
         //ar cam trebui un body pt json gen ca un body request
-        fetch("https://reqres.in/api/users/2", {
+        fetch("https://all-db.herokuapp.com/api/v1/requestNeeder", {
             method: "POST",
             body: JSON.stringify(values),
-            headers: { "Content-type": "application/json; charset=UTF-8" }
+            headers: 
+            { 
+                "Content-type": "application/json",
+                "Authentication": localStorage.getItem('token')
+            },
         })
             .then(res => {
-                res = res.json();
-                seteazaHelper(res);
-            }).then(json => {
-                console.log(json)
+                alert(res);
+                //seteazaHelper(res);
             })
-
+            .catch(error=>{
+                alert(error);
+            })
     }
     function status(response) {
         if (response.status >= 200 && response.status < 300) {
@@ -42,9 +45,9 @@ function AlteServicii() {
     const receiveTop = () => {
         fetch('https://www.random.org/sequences/?min=1&max=33&col=1&format=plain')
             .then(status)
-            .then(response => response.text())
-            .then(response => {
-                alert(response);
+            .then(response => response.json())
+            .then(responseJson => {
+                alert(responseJson);
                 let helpersList = [];
                 /*json.forEach(user => {
                     //cred ca mai bine setez aici
@@ -53,11 +56,10 @@ function AlteServicii() {
                 })*/
                 //seteazaHelper(helpersList)//nu cred ca mai are rost chestia asta
                 //gen setarea starii cu noii helperi in componenta aia cu top
-                console.log(response);
                 seteazaLoading();
             })
             .catch(error => {
-                alert("nasol coe");
+                alert("nasol man nu am primit bine topul");
             })
     };
 
@@ -65,14 +67,13 @@ function AlteServicii() {
 
     const formik = useFormik({
         initialValues: {
-            //username: '',
+            username: localStorage.getItem('user'),
             tip_nevoie: 'Serviciu',
             tags: {},
             details: '',
         },
         onSubmit: values => {
             document.getElementById("loader1").style.display = "inline";
-            //values.username=local.Storage("username");
             let tagValues = tags;
             tagValues.map((tag, index) => {
                 tag.name = tag.text;
@@ -86,8 +87,7 @@ function AlteServicii() {
                 tagValues.map((tag) => tag["quantity"] = -1)
             delete values["tip_nevoie"];
             tagValues.map((tag) => values.tags[tag.name] = tag.quantity)
-            alert(JSON.stringify(values))
-            //sendItemsToDB(values);
+            sendItemsToDB(values);
             receiveTop();
         }
     });
@@ -150,6 +150,7 @@ function AlteServicii() {
                 </form>
             </div>) : <ControlledCarousel/>/*
             aici tre cred sa bagam componenta la care o facut Tudor in care sa dam la props acei helperi cred : ai dreptate robi
+            da de ce nu am dat props tho?
             */}
 
         </div>

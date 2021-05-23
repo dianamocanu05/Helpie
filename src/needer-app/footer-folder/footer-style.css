@@ -15,7 +15,7 @@ Roz - padding,margins,border butoane, div-uri, hr-uri
 	src: url(./Roboto-fonts/Roboto-Light.ttf);
 }
 
-.footer {
+.footerNeeder {
 	background-color: #36506b;
 	color: #F5F5F5;
 	font-size: 1.5em;
@@ -75,6 +75,7 @@ Roz - padding,margins,border butoane, div-uri, hr-uri
 	top:10px;
 	margin-left: 30px;
 	margin-right: 30px;
+	text-align: center;
 }
 
 .Contact a:visited {
@@ -160,7 +161,7 @@ Roz - padding,margins,border butoane, div-uri, hr-uri
 		flex-direction: column;
 		align-items: center;
 	}
-	.footer {
+	.footerNeeder {
 		background-color: #36506b;
 		color: #F5F5F5;
 		font-size: 2vh;
