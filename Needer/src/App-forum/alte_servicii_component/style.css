@@ -1,0 +1,225 @@
+.alignRight{
+    display:flex;
+    justify-content: center;
+}
+
+
+
+.butonSubmit{
+    display:flex;
+    justify-content:center;
+    background-color:rgba(252,81,133, 1);
+    color: white;
+    font-size: 2.5vw;
+    font-style: Roboto;
+    cursor: pointer;
+    margin: 4vw 1vw 2vw;
+    border-style: solid;
+    border-color:white;
+    border-width: 0.5vw;
+    border-radius: 1vw;
+    width: 20%;
+}
+
+.buttonSubmit a, a:hover, a:active, a:focus {
+    color:inherit;
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.Cantitate_produs{
+    width: 100%;
+}
+
+.Cantitate_produs_1{
+    width: 100%;
+    background-color: rgba(252,81,133, 1);
+    font-size: 3.2vh;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    border-bottom: solid;
+    border-top: solid;
+    border-width: 0.5vw;
+}
+
+.Cantitate_produs input{
+    width: 50%;
+    height: 50%;
+}
+
+.alignRight input {
+    cursor: pointer;
+}
+
+.DescriereData{
+    background-color: rgba(252,81,133, 1);
+    font-size: 4vh;
+    margin-top: 2vw;
+    border-bottom: solid;
+    border-top: solid;
+    border-width: 0.5vw;
+}
+
+.DescriereNevoie {
+    background-color: rgba(252,81,133, 1);
+    font-size: 4vh;
+    margin-top: 2vw;
+    border-bottom: solid;
+    border-top: solid;
+    border-width: 0.5vw;
+}
+
+.wrapper{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+}
+
+.wrapper_form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    background-color:#36506b;
+    border: #fc5185;
+    border-style: double;
+}
+
+.wrapper_form form{
+    text-align: center;
+    width: 100%;
+    height: auto;
+    color: #F5F5F5;
+    background-color: #36506b;
+}
+
+#descriere_text_box{
+    font-size: 1vw;
+    margin-bottom: 1vh;
+    text-align: center;
+    width: 70%;
+    height: 40vh;
+    margin-top: 0.5vh;
+}
+
+
+
+@media screen and (min-width:601px) and (max-width:1100px){
+    
+    .wrapper_form form .DescriereNevoie{
+        background-color: rgba(252,81,133, 1);
+        font-size: 2.5vh;
+        margin-top: 2.5vh;
+        border-bottom: solid;
+        border-top: solid;
+        border-width: 0.5vh;
+    }
+    
+    .wrapper_form form .DescriereData .DataFinalizare{
+        font-size: 2.5vh;
+    }
+
+    .Cantitate_produs_1{
+        font-size: 2.5vh;
+    }
+
+    .wrapper_form form .DescriereData{
+        background-color: rgba(252,81,133, 1);
+        font-size: 2.5vh;
+        margin-top: 2.5vh;
+        border-bottom: solid;
+        border-top: solid;
+        border-width: 0.5vh;
+    }
+
+    
+}
+
+#loader1{
+    display:none;
+}
+
+@media screen and (max-width:600px){
+
+    .DescriereData{
+        font-size: 2vh;
+        margin-top: 2vh;
+        border-width: 0.5vh;
+    }
+    
+    .DescriereNevoie {
+        font-size: 2vh;
+        margin-top: 2vh;
+        border-width: 0.5vh;
+    }
+
+    .Cantitate_produs_1{
+        font-size: 2vh;
+    }
+
+    #cantitate{
+        display: flex;
+        flex-direction: column;
+    }
+    #cantitate input{
+        left: 15%;
+        width: 6vh;
+    }
+    #descriere_text_box {
+        font-size: 3vh;
+    }
+
+    .DescriereNevoie {
+        font-size: 3vh;
+    }
+
+    .butonSubmit{
+        font-size: 6vh;
+    }
+    
+
+    .DataFinalizare {
+        font-size: 3.2vh;
+    }
+
+    .butonSubmit{
+        width: 20vh;
+        font-size: 4vh;
+        text-align: right;
+        margin: 4vh 1vh 2vh;
+        border-width: 0.5vh;
+        border-radius: 1vh;
+    }
+
+    label {
+        font-size: 4vh;
+    }
+    .wrapper{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 80%;
+        width: 100%;
+    }
+    .wrapper_form{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 99%;
+        height: 100%;
+        background-color:#36506b;
+        border: #fc5185;
+        border-style: double;
+    }
+    .wrapper_form form{
+        text-align: center;
+        width: auto;
+        height: auto;
+        color: #F5F5F5;
+        background-color: #36506b;
+    }
+}

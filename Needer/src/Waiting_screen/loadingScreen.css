@@ -1,0 +1,55 @@
+
+.Loading-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Loading-logo {
+    animation: Loading-logo-spin infinite 20s linear;
+  }
+}
+
+.Loading-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+ /* align-items: center;
+  justify-content: center; */
+  font-size: calc(40px + 2vmin);
+  color: white;
+}
+
+.Loading-link {
+  color: #61dafb;
+}
+
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border-top: 16px solid #364f6b;
+  border-right: 16px solid #3fc1c9;
+  border-bottom: 16px solid #f5f5f5;
+  border-left: 16px solid #fc5185;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.text{
+  text-align: center;
+  color:#F5F5F5;
+}

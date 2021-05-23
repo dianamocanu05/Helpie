@@ -1,0 +1,35 @@
+.Home {
+    text-align: center;
+  }
+  
+  
+  .Home-bg {
+    background-image: url("https://creative-designs.ca/wp-content/uploads/2015/08/Website-Design-Background.jpg");
+    background-size:cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+  }
+  
+  
+  .form-button{
+    border: 2px solid #fc5185;
+    color: #F5F5F5;
+    background-color: #364f6b;
+    border-radius: 10px;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .form-button:hover{
+    opacity: 60%;
+  }
