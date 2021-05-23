@@ -22,7 +22,8 @@ function AlteServicii() {
             headers: 
             { 
                 "Content-type": "application/json",
-                "Authentication": localStorage.getItem('token')
+                'Authorization': localStorage.getItem('token')
+                
             },
         })
             .then(res => {
