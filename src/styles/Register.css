@@ -1,9 +1,12 @@
 .textRegister{
   margin-bottom: 4px;
   margin-top: 4px;
+
   align-items: center;
-  color:rgb(6, 28, 46);
+  color:rgb(27, 26, 26);
   font-family: 'Segoe UI',sans-serif;
+  font-size: 20px;
+  text-shadow: 1px;
 }
 
 .fieldRegister {
@@ -13,6 +16,8 @@
   position: relative;
   background-color: rgba(255,255,255,0.3);
   transition: 0.3s all;
+  box-sizing: border-box;
+  box-shadow: black;
 }
 .fieldRegister:hover {
   background-color: rgba(255, 255, 255, 0.45);
@@ -35,16 +40,22 @@
   margin-left: auto;
   transform: translateY(-50%);
   align-items: center;
-  width: 40%;
+  width: 30%;
   border-radius: 3px;
   fill-opacity: 0.5;
   box-shadow: 0px 3px 7px rgba(0,0,0,.25);
 }
 .bodyRegister{
-  display: grid; 
-  background: url(help.jpg) repeat;
+  display: grid;
+  background: url(help.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: grid;
   grid-template-rows: 30% 75%;
   height: 100vh;
+
 }
 #logoRegister{
   margin-left: 0;
@@ -54,10 +65,13 @@ input[type=text] {
   padding: 1px 2px;
   margin: 8px 0;
   box-sizing: border-box;
+  box-shadow: black;
 }
 
 #imageRegister{
-  height:120%;
+  display: grid;
+  height:80%;
+  margin-top: 5%;
 }
 
 .fbRegister {
@@ -67,12 +81,13 @@ input[type=text] {
 
 .form__fieldRegister {
   font-family: inherit;
-  width: 100%;
-  border: 0;
+  font-size: 10px;
+  width: 120%;
+  border-bottom: 1;
   outline: 0;
   font-size: 1rem;
   padding: 5px 0;
-  background: transparent;
+  background-color:transparent;
  
 }
 

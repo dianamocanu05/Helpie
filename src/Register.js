@@ -103,20 +103,21 @@ export default class Register extends Component {
   render() {
     return (
       <div className="bodyRegister">
+    
         <div className="center">
+          <form className="form-controlRegister signup-containerRegister">
+          <div className="center">
           <div className="center" >
             <img src={require('./styles/LogoH-02.png').default} id="imageRegister" />
           </div>
         </div>
-        <div className="center">
-          <form className="form-controlRegister signup-containerRegister">
             <div className="center">
               <label>
                 <p className="textRegister">Email address</p>
                 <input className="form__fieldRegister"
                   type="email"
                   name="email"
-                  placeholder="Email"
+                  placeholder="Please enter your email"
                   value={this.state.email}
                   onChange={this.handleChange}
                   required
@@ -129,7 +130,7 @@ export default class Register extends Component {
                 <input className="form__fieldRegister"
                   type="text"
                   name="username"
-                  placeholder="Username"
+                  placeholder="Please enter your  username"
                   value={this.state.username}
                   onChange={this.handleChange}
                   required
@@ -142,7 +143,7 @@ export default class Register extends Component {
                 <input className="form__fieldRegister"
                   type="text"
                   name="name"
-                  placeholder="Name"
+                  placeholder="Please enter your name"
                   value={this.state.name}
                   onChange={this.handleChange}
                   required
@@ -155,7 +156,7 @@ export default class Register extends Component {
                 <input className="form__fieldRegister"
                   type="text"
                   name="surname"
-                  placeholder="Surname"
+                  placeholder="Please enter your surname"
                   value={this.state.surname}
                   onChange={this.handleChange}
                   required
@@ -181,7 +182,7 @@ export default class Register extends Component {
                 <input className="form__fieldRegister"
                   type="password"
                   name="password"
-                  placeholder="Password"
+                  placeholder="Please enter your password"
                   value={this.state.password}
                   onChange={this.handleChange}
                   required
