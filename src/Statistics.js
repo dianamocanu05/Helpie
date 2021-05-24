@@ -18,7 +18,7 @@ getUserData();
 async function getUserData() {
     var url = 'https://all-db.herokuapp.com/api/v1/statisticForUser';
     var request = new Request(url, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -29,7 +29,6 @@ async function getUserData() {
     const response = await fetch(request);
     const data = await response.json();
     grafic.datasets[0].data = [data.countHelper, data.countNeeder];
-
 }
 
 const Statistics = () => {
