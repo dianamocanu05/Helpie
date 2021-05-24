@@ -10,6 +10,7 @@ import ContactPage from "./ContactPage"
 import Motivation from "./Motivation"
 import Join from "./Join"
 import Logout from "./Logout"
+import Statistics from "./Statistics"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -32,6 +33,7 @@ const App = () => {
                 <Route exact path="/Logout" component={Logout} >
                     <Logout LogIn={setLoggedIn}/>
                 </Route>
+                <Route exact path="/Statistics" component={Statistics} />
             </Switch>
             <Footer />
         </Router>

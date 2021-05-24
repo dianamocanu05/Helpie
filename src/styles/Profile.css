@@ -1,8 +1,8 @@
 #paginaProfile{
-    height: 100vw;
+    height: 80vw;
     background-color: black;
     display: grid;
-    grid-template-rows: 40% 60%;
+    grid-template-rows: 50% 50%;
     grid-gap: 10px;
     border-style: solid;
     border-width: 10px;
@@ -21,7 +21,7 @@
 
 #descriere{
     display: grid;
-    grid-template-rows: 60% 40%;
+    grid-template-rows: 50% 10% 10% 30%;
     text-align: center;
     background-color: brown;
 }
@@ -58,6 +58,7 @@
 
 #disponibilitate{
     font-size: 30px;
+    margin-top: 7vw;
 }
 
 #lista{
@@ -84,11 +85,6 @@
     width: 100%;
 }
 
-#despre{
-    margin-top: 10vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
 
 .butoaneProfile {
 	box-shadow: 3px 4px 0px 0px #8a2a21;
@@ -135,6 +131,7 @@
 
     #disponibilitate{
         font-size: 20px;
+        margin-top: 3vw;
     }
 
     #aptitudini{
@@ -148,10 +145,16 @@
         width: 75px;
     }
 
-    #graficProfile{
-        margin-top: 40px;
-        width: 90%;
-        margin-left: 5%;
+    #successProfile
+    {
+        font-size: 20px;
+    }
+
+    #failProfile
+    {
+        font-size: 20px;
+        position: relative;
+        bottom: 39px;
     }
 
 }
@@ -163,6 +166,7 @@
 
     #disponibilitate{
         font-size: 15px;
+        margin-top: 3vw;
     }
 
     #aptitudini{
@@ -180,6 +184,18 @@
         margin-top: 30px;
         width: 90%;
         margin-left: 5%;
+    }
+
+    #successProfile
+    {
+        font-size: 15px;
+    }
+
+    #failProfile
+    {
+        font-size: 15px;
+        position: relative;
+        bottom: 29px;
     }
 
 
@@ -207,12 +223,6 @@
         top:1px;
     }
 
-    #despre{
-        margin-top: 7vw;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
 }
 
 @media screen and (max-width: 450px){
@@ -222,6 +232,7 @@
 
     #disponibilitate{
         font-size: 15px;
+        margin-top: 0vw;
     }
 
     #aptitudini{
@@ -235,16 +246,43 @@
         width: 40px;
     }
 
-    #graficProfile{
-        margin-top: 20px;
-        width: 90%;
-        margin-left: 5%;
+    #successProfile
+    {
+        font-size: 15px;
+        position: relative;
+        bottom: 15px;
     }
 
-    #despre{
-        margin-top: 0vw;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    #failProfile
+    {
+        font-size: 15px;
+        position: relative;
+        bottom: 29px;
     }
+
+    .butoaneProfile {
+        box-shadow: 3px 4px 0px 0px #8a2a21;
+        background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+        background-color:#c62d1f;
+        border-radius:18px;
+        border:1px solid #d02718;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:10px;
+        padding:5px 10px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #810e05;
+    }
+    .butoaneProfile:hover {
+        background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+        background-color:#f24437;
+    }
+    .butoaneProfile:active {
+        position:relative;
+        top:1px;
+    }
+
 
 }

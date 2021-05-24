@@ -82,6 +82,7 @@ export default class Login extends Component {
     if (data.success == 1) {
       //succes
       localStorage.setItem('token', data.token);
+      localStorage.setItem('username', data.username);
       this.props.LogIn(1);
       this.setRedirect();
     } else {
@@ -131,13 +132,6 @@ export default class Login extends Component {
                     required
                   />
                 </label> </div>
-
-              <div className="center">
-                <div className="custom-control custom-checkbox">
-                  <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                  <label className="custom-control-label" htmlFor="customCheck1" id="textLogin">Remember me</label>
-                </div>
-              </div>
 
 
               <div className="center">
