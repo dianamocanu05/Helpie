@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { cloneDeep } from 'lodash';
 import './style.css';
 import Tags from "./tags";
@@ -10,6 +10,8 @@ function AlteServicii() {
     const [loading, setLoading] = useState(false);
     const [tags, setTags] = useState([]);
     const [cantitate, setCantitate] = useState([]);
+    const [suggest, setSuggest] = useState(new Map());
+    const [suggest1, setSuggest1] = useState([]);
     const [helper, setHelper] = useState([]);
     let count = 0;
     const API_URL = "https://reqres.in/api/users/2"
@@ -36,6 +38,24 @@ function AlteServicii() {
                 alert("Error:" + error);
             })
     }
+
+    const seteazaSugestii = (suggest) => {
+        setSuggest(suggest);
+    }
+
+    useEffect(() => {
+        fetch("https://all-db.herokuapp.com/api/v1/needs")
+            .then(status)
+            .then(res => res.json())
+            .then(resJson => {
+                console.log("ii bine");
+                console.log(resJson);
+                seteazaSugestii(resJson);
+            })
+            .catch(error => {
+            })
+    }, [])
+
     function status(response) {
         if (response.status >= 200 && response.status < 300) {
             // cererea poate fi rezolvată – fulfill
@@ -47,11 +67,11 @@ function AlteServicii() {
     }
     const receiveTop = () => {
         fetch('https://www.random.org/sequences/?min=1&max=33&col=1&format=plain')
-        .then(status)
-        .then(response => response.text())// ---l-am folosit pentru a testa daca ii decent fetch-ul
-        .then(responseJson => {
-            //.then(response => response.json()) --- folosit pt a obtine jsonul
-            alert("Respunsul de la cerere:" + responseJson);
+            .then(status)
+            .then(response => response.text())// ---l-am folosit pentru a testa daca ii decent fetch-ul
+            .then(responseJson => {
+                //.then(response => response.json()) --- folosit pt a obtine jsonul
+                alert("Respunsul de la cerere:" + responseJson);
                 //let helpersList = [];
                 /*responseJson.forEach(username => {
                     //cred ca mai bine setez aici
@@ -63,7 +83,7 @@ function AlteServicii() {
                 seteazaLoading();
                 alert("pana aici o mers bine");
             })
-        .catch(error => {
+            .catch(error => {
                 alert("nasol man nu am primit bine topul");
                 seteazaLoading();
             })
@@ -103,16 +123,36 @@ function AlteServicii() {
             seteazaTag(tags);
         }
     });
+
+    const seteazaSugestii1 = (suggest) => {
+        setSuggest1(suggest);
+    }
+
     const seteazaHelper = (help) => {
         setHelper(help)
     }
     const formikNevoie = () => {
         let selectedRadio = "";
+        let suggestions = cloneDeep(suggest);
+        const keys = Object.keys(suggestions);
         if (document.getElementById("selectServiciu").checked) {
-            selectedRadio = "Servicii";
+             selectedRadio = "Servicii";
+        //     keys.forEach((key) => {
+        //         if (suggestions[key] === "service") {
+        //                 let object;
+        //                 object.id=key;
+        //                 object.text=key;
+        //                 seteazaSugestii1([...suggest1,object]);
+        //         }
+        //     });
         }
         else {
             selectedRadio = "Produse";
+            keys.forEach((key) => {
+                if (suggestions[key] === "product") {
+
+                }
+            });
         }
         if (formik.values.tip_nevoie !== undefined) {
             if (formik.values.tip_nevoie !== selectedRadio)
@@ -143,7 +183,7 @@ function AlteServicii() {
                     <input onChange={formikNevoie} type="radio" id="selectProdus" name="tip_nevoie" value="Produse" required /> Produse
                 <br />
                     <div id="listaTags">
-                        <Tags giveTags={seteazaTag} tags={tags} check={formik.values.tip_nevoie} />
+                        <Tags suggest={suggest1} giveTags={seteazaTag} tags={tags} check={formik.values.tip_nevoie} />
                     </div>
                     <textarea id="descriere_text_box" name="details" onChange={formik.handleChange} />
                     <br />

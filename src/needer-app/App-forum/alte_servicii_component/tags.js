@@ -67,7 +67,7 @@ export default class Tags extends React.Component {
       <div>
         <ReactTags
           tags={this.props.tags}
-          suggestions={suggestions}
+          suggestions={this.props.suggest}
           delimiters={delimiters}
           handleDelete={this.handleDelete}
           handleAddition={this.handleAddition}
