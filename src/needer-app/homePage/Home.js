@@ -1,6 +1,7 @@
 import './Home.css';
 //import Carousel from '../carousel/carousel.js';
 import { Link } from 'react-router-dom';
+import ControlledCarousel from '../carousel/carousel.js'
 function Home() {
   return (
     <div className="Home">

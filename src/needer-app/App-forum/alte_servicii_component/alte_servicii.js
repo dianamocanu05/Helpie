@@ -10,15 +10,20 @@ function AlteServicii() {
     const [loading, setLoading] = useState(false);
     const [tags, setTags] = useState([]);
     const [cantitate, setCantitate] = useState([]);
-    const [suggest, setSuggest] = useState(new Map());
-    const [suggest1, setSuggest1] = useState([]);
+    const [suggest, setSuggest] = useState(new Map());//toate need-urile
+    const [suggest1, setSuggest1] = useState([]);//cred ca aici punem products sau services
     const [helper, setHelper] = useState([]);
+
+    const { sugestiiServicii, setSugestiiServicii } = useState([]);
+    const { sugestiiProduse, setSugestiiProduse } = useState([]);
+
     let count = 0;
     const API_URL = "https://reqres.in/api/users/2"
 
     const zapierURLDebbuging = "https://hooks.zapier.com/hooks/catch/10117216/byp97u8";
 
 
+    //fetch la claudia
     const sendItemsToDB = (values) => {
         //ar cam trebui un body pt json gen ca un body request
         fetch("https://all-db.herokuapp.com/api/v1/requestNeeder", {
@@ -43,7 +48,16 @@ function AlteServicii() {
         setSuggest(suggest);
     }
 
+    const setSugServ = (sugg) => {
+        setSugestiiServicii(sugg);
+    }
+
+    const setSugProd = (sugg) => {
+        setSugestiiProduse(sugg);
+    }
+
     useEffect(() => {
+        //needs
         fetch("https://all-db.herokuapp.com/api/v1/needs")
             .then(status)
             .then(res => res.json())
@@ -51,11 +65,34 @@ function AlteServicii() {
                 console.log("ii bine");
                 console.log(resJson);
                 seteazaSugestii(resJson);
+                let suggestions = cloneDeep(suggest);
+                const items = Object.keys(suggestions);
+                let varSugestieServicii = [];
+                let varSugestieProduse = [];
+                items.forEach((item) => {
+                    if (suggestions[item] === "service") {
+                        let object = {};
+                        object.id = item;
+                        object.text = item;
+                        varSugestieServicii = [...varSugestieServicii, object];
+                    }
+                    else {
+                        let object = {};
+                        object.id = item;
+                        object.text = item;
+                        varSugestieProduse = [...varSugestieProduse, object];
+
+                    }
+                });
+                setSugServ(varSugestieServicii);
+                setSugProd(varSugestieProduse);
+
             })
             .catch(error => {
             })
     }, [])
 
+    //verificare status fetch-uri
     function status(response) {
         if (response.status >= 200 && response.status < 300) {
             // cererea poate fi rezolvată – fulfill
@@ -65,7 +102,10 @@ function AlteServicii() {
             return Promise.reject(new Error(response.statusText))
         }
     }
+
+    //fetch la catalin
     const receiveTop = () => {
+        //https://matching-alg.herokuapp.com/match?user= si aici username-ul
         fetch('https://www.random.org/sequences/?min=1&max=33&col=1&format=plain')
             .then(status)
             .then(response => response.text())// ---l-am folosit pentru a testa daca ii decent fetch-ul
@@ -131,28 +171,38 @@ function AlteServicii() {
     const seteazaHelper = (help) => {
         setHelper(help)
     }
+
     const formikNevoie = () => {
         let selectedRadio = "";
         let suggestions = cloneDeep(suggest);
-        const keys = Object.keys(suggestions);
+        const items = Object.keys(suggestions);
         if (document.getElementById("selectServiciu").checked) {
-             selectedRadio = "Servicii";
-        //     keys.forEach((key) => {
-        //         if (suggestions[key] === "service") {
-        //                 let object;
-        //                 object.id=key;
-        //                 object.text=key;
-        //                 seteazaSugestii1([...suggest1,object]);
-        //         }
-        //     });
+            selectedRadio = "Servicii";
+            let varSugestie = [];
+            items.forEach((item) => {
+                if (suggestions[item] === "service") {
+                    let object = {};
+                    object.id = item;
+                    object.text = item;
+                    varSugestie = [...varSugestie, object];
+                }
+            });
+            seteazaSugestii1(varSugestie)
+            //seteazaSugestii1(sugestiiServicii)
         }
         else {
             selectedRadio = "Produse";
-            keys.forEach((key) => {
-                if (suggestions[key] === "product") {
-
+            let varSugestie = [];
+            items.forEach((item) => {
+                if (suggestions[item] === "product") {
+                    let object = {};
+                    object.id = item;
+                    object.text = item;
+                    varSugestie = [...varSugestie, object];
                 }
             });
+            seteazaSugestii1(varSugestie);
+            //seteazaSugestii1(sugestiiProduse)
         }
         if (formik.values.tip_nevoie !== undefined) {
             if (formik.values.tip_nevoie !== selectedRadio)
@@ -202,7 +252,7 @@ function AlteServicii() {
                     </div>
 
                 </form>
-            </div>) : <ControlledCarousel />/*
+            </div>) : <ControlledCarousel/>/*
             aici tre cred sa bagam componenta la care o facut Tudor in care sa dam la props acei helperi cred : ai dreptate robi
             da de ce nu am dat props tho?
             */}
