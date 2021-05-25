@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { cloneDeep } from 'lodash';
 import './style.css';
 import Tags from "./tags";
 import { useFormik } from 'formik';
@@ -13,25 +14,26 @@ function AlteServicii() {
     let count = 0;
     const API_URL = "https://reqres.in/api/users/2"
 
+    const zapierURLDebbuging = "https://hooks.zapier.com/hooks/catch/10117216/byp97u8";
+
 
     const sendItemsToDB = (values) => {
         //ar cam trebui un body pt json gen ca un body request
         fetch("https://all-db.herokuapp.com/api/v1/requestNeeder", {
             method: "POST",
             body: JSON.stringify(values),
-            headers: 
-            { 
+            headers:
+            {
                 "Content-type": "application/json",
-                'Authorization': localStorage.getItem('token')
-                
+                // 'token': localStorage.getItem('token')          
             },
         })
-            .then(res => {
-                alert(res);
-                //seteazaHelper(res);
-            })
-            .catch(error=>{
-                alert(error);
+            .then(res => res.json())
+            .then(res =>
+                console.log("Succes:" + res.message)
+            )
+            .catch(error => {
+                alert("Error:" + error);
             })
     }
     function status(response) {
@@ -45,22 +47,25 @@ function AlteServicii() {
     }
     const receiveTop = () => {
         fetch('https://www.random.org/sequences/?min=1&max=33&col=1&format=plain')
-            .then(status)
-            .then(response => response.json())
-            .then(responseJson => {
-                alert(responseJson);
-                let helpersList = [];
-                /*json.forEach(user => {
+        .then(status)
+        .then(response => response.text())// ---l-am folosit pentru a testa daca ii decent fetch-ul
+        .then(responseJson => {
+            //.then(response => response.json()) --- folosit pt a obtine jsonul
+            alert("Respunsul de la cerere:" + responseJson);
+                //let helpersList = [];
+                /*responseJson.forEach(username => {
                     //cred ca mai bine setez aici
-                    console.log(user)
-                    helpersList = [...helpersList, user];
+                    console.log(username)
+                    helpersList = [...helpersList, username];
                 })*/
                 //seteazaHelper(helpersList)//nu cred ca mai are rost chestia asta
                 //gen setarea starii cu noii helperi in componenta aia cu top
                 seteazaLoading();
+                alert("pana aici o mers bine");
             })
-            .catch(error => {
+        .catch(error => {
                 alert("nasol man nu am primit bine topul");
+                seteazaLoading();
             })
     };
 
@@ -69,27 +74,33 @@ function AlteServicii() {
     const formik = useFormik({
         initialValues: {
             username: localStorage.getItem('user'),
-            tip_nevoie: 'Serviciu',
+            tip_nevoie: 'Servicii',
             tags: {},
             details: '',
         },
         onSubmit: values => {
             document.getElementById("loader1").style.display = "inline";
-            let tagValues = tags;
-            tagValues.map((tag, index) => {
+            // eslint-disable-next-line no-undef
+            let tagValues = _.cloneDeep(tags);
+            tagValues.map((tag) => {
                 tag.name = tag.text;
                 delete tag["id"];
                 delete tag["text"];
                 return tag;
             })
-            if (formik.values.tip_nevoie === "Produs")
+            if (formik.values.tip_nevoie === "Produse")
                 tagValues.map((tag, index) => tag["quantity"] = cantitate[index])
             else
                 tagValues.map((tag) => tag["quantity"] = -1)
-            delete values["tip_nevoie"];
             tagValues.map((tag) => values.tags[tag.name] = tag.quantity)
-            sendItemsToDB(values);
+            // eslint-disable-next-line no-undef
+            let formValues = _.cloneDeep(values)
+            delete formValues["tip_nevoie"]
+            alert(JSON.stringify(tags))
+            alert(JSON.stringify(formValues))
+            setTimeout(sendItemsToDB(values), 30000);
             receiveTop();
+            seteazaTag(tags);
         }
     });
     const seteazaHelper = (help) => {
@@ -98,14 +109,16 @@ function AlteServicii() {
     const formikNevoie = () => {
         let selectedRadio = "";
         if (document.getElementById("selectServiciu").checked) {
-            selectedRadio = "Serviciu";
+            selectedRadio = "Servicii";
         }
         else {
-            selectedRadio = "Produs";
+            selectedRadio = "Produse";
         }
-        if (formik.values.tip_nevoie !== selectedRadio)
-            setTags([]);
-        formik.values.tip_nevoie = selectedRadio;
+        if (formik.values.tip_nevoie !== undefined) {
+            if (formik.values.tip_nevoie !== selectedRadio)
+                setTags([]);
+            formik.values.tip_nevoie = selectedRadio;
+        }
     }
 
     const seteazaLoading = () => {
@@ -135,21 +148,21 @@ function AlteServicii() {
                     <textarea id="descriere_text_box" name="details" onChange={formik.handleChange} />
                     <br />
                     {
-                        (formik.values.tip_nevoie === "Produs") ?
+                        (formik.values.tip_nevoie === "Produse") ?
                             tags.map((tag) =>
                                 <CantitateInput quantity={cantitate} giveQuantity={setCantitate} tag={tag} keys={++count} />) : undefined
                     }
                     <div className="alignRight">
                         <div className="butonSubmit" onClick={formik.handleSubmit} type="submit">
                             Trimite
-                            <div id="loader1" class="spinner-border text-danger" role="status">
-                                <span class="sr-only">Loading...</span>
+                            <div id="loader1" className="spinner-border text-danger" role="status">
+                                <span className="sr-only">Loading...</span>
                             </div>
                         </div>
                     </div>
 
                 </form>
-            </div>) : <ControlledCarousel/>/*
+            </div>) : <ControlledCarousel />/*
             aici tre cred sa bagam componenta la care o facut Tudor in care sa dam la props acei helperi cred : ai dreptate robi
             da de ce nu am dat props tho?
             */}

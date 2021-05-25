@@ -1,3 +1,19 @@
+.buttonS{
+    transition-duration: 0.4s;
+    background-color: rgba(252,81,133,1);
+    border-style: dashed;
+    border-width: 0.25vw;
+    color: rgba(255, 255, 255, 1);
+    border-color: rgba(63,193,201,1);
+    border-radius: 0.4vw;
+    margin-left: 50%;
+}
+
+.buttonS:hover {
+    border-color: rgba(252,81,133,1);
+    background-color: rgba(63,193,201,1);
+}
+
 .bg{
     background: rgb(63,193,201);
     background: linear-gradient(225deg, rgba(63,193,201,1) 0%, rgba(252,81,133,1) 100%);

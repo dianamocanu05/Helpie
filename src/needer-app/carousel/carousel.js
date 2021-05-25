@@ -43,7 +43,7 @@ function ControlledCarousel(props) {
                             <p>Scor:{ } </p>
                             <p> Resurse comune: </p>
                             <div className="common">{/*cred ca aici merge sa facem inserarile cu java vanilla */}</div>
-                            <button onclick={formik} className="">Alegeti acest helper</button>
+                            <button class="buttonS" onclick={formik}>Alegeti acest helper</button>
                         </div>
 
                     </div>
@@ -57,7 +57,7 @@ function ControlledCarousel(props) {
                             <p>Scor:{ } </p>
                             <p> Resurse comune: </p>
                             <div className="common">{/*cred ca aici merge sa facem inserarile cu java vanilla */}</div>
-                            <button onclick={formik}>Alegeti acest helper</button>
+                            <button class="buttonS" onclick={formik}>Alegeti acest helper</button>
                         </div>
                     </div>
                 </Carousel.Item>
@@ -70,7 +70,7 @@ function ControlledCarousel(props) {
                             <p>Scor:{ } </p>
                             <p> Resurse comune: </p>
                             <div className="common">{/*cred ca aici merge sa facem inserarile cu java vanilla */}</div>
-                            <button onclick={formik}>Alegeti acest helper</button>
+                            <button class="buttonS" onclick={formik}>Alegeti acest helper</button>
                         </div>
                     </div>
                 </Carousel.Item>
