@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 const navItems = [
   { title: "Home", url: "/" },
-  { title: "Overview", url: "/overview" },
+  { title: "Overview", url: "/overview/overviewPage" },
 ];
 
 const LoggedInNavItems = [
-  { title: "Profile", url: "/profile" },
-  { title: "Log Out", url: "/logout"}
+  { title: "Profile", url: "/overview/profile" },
+  { title: "Log Out", url: "/overview/logout"}
 ];
 
 const LoggedOutNavItems = [
-  { title: "Login", url: "/login" },
-  { title: "Register", url: "/register" },
+  { title: "Login", url: "/overview/login" },
+  { title: "Register", url: "/overview/register" },
 ];
 
 function isLoggedIn() {

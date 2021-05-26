@@ -10,33 +10,82 @@ import ContactPage from "./ContactPage"
 import Motivation from "./Motivation"
 import Join from "./Join"
 import Logout from "./Logout"
-import Statistics from "./Statistics"
+import Needer from "./needer-app/Needer"
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import FooterNeeder from "./needer-app/footer-folder/footer";
+import Help from "./needer-app/Help/Help";
+import Forum from "./needer-app/App-forum/App-forum";
+import FAQPage from "./needer-app/faqPage/faqPage";
+import AboutUs from "./needer-app/aboutUs/aboutUs";
+
+
+import {Switch, Route } from "react-router-dom";
 
 const App = () => {
     const [loggedIn, setLoggedIn] = useState(0);
     return (
-        <Router>
-            <Header />
-            <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/login" component={Login}>
-                    <Login LogIn={setLoggedIn}/>
-                </Route>
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/profile" component={Profile} />
-                <Route exact path="/motivation" component={Motivation} />
-                <Route exact path="/join" component={Join} />
-                <Route exact path="/overview" component={Overview} />
-                <Route exact path="/ContactPage" component={ContactPage} />
-                <Route exact path="/Logout" component={Logout} >
-                    <Logout LogIn={setLoggedIn}/>
-                </Route>
-                <Route exact path="/Statistics" component={Statistics} />
-            </Switch>
-            <Footer />
-        </Router>
+        <Switch>
+            <Route exact path="/">
+                <Header />
+                <HomePage />
+                <Footer />
+            </Route>
+            <Route exact path="/overview/login">
+                <Header />
+                <Login LogIn={setLoggedIn} />
+                <Footer />
+            </Route>
+            <Route exact path="/overview/register" >
+                <Header />
+                <Register />
+                <Footer />
+            </Route>
+            <Route exact path="/overview/profile" >
+                <Header />
+                <Profile />
+                <Footer />
+            </Route>
+            <Route exact path="/overview/motivation" >
+                <Header />
+                <Motivation />
+                <Footer />
+            </Route>
+            <Route exact path="/overview/join">
+                <Header />
+                <Join />
+                <Footer />
+            </Route>
+            <Route exact path="/overview/overviewPage" >
+                <Header />
+                <Overview />
+                <Footer />
+            </Route>
+            <Route exact path="/overview/ContactPage">
+                <Header />
+                <ContactPage />
+                <Footer />
+            </Route>
+            <Route exact path="/overview/Logout" >
+                <Header />
+                <Logout LogIn={setLoggedIn} />
+                <FooterNeeder />
+            </Route>
+            <Route path="/needer/form">
+                <Forum />
+            </Route>
+            <Route path="/needer/help">
+                <Help />
+            </Route>
+            <Route path="/needer/faqpage">
+                <FAQPage />
+            </Route>
+            <Route path="/needer/aboutUs">
+                <AboutUs />
+            </Route>
+            <Route exact path="/needer">
+                <Needer />
+            </Route>
+        </Switch>
     )
 }
 

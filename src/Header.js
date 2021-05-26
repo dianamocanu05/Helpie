@@ -6,7 +6,7 @@ import "./styles/Header.css"
 import useWindowDimensions from "./WindowDimensions"
 
 const Header = () => {
-    const { height, width } = useWindowDimensions();
+    const { width } = useWindowDimensions();
     return (
         <div className="headerContainer">
             <div className="logoContainer">

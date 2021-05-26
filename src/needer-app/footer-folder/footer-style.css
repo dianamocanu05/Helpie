@@ -1,0 +1,174 @@
+/*
+paleta de culori:
+dark blue:#36506b;
+Cyan:#3ec1c9;
+ALb:#F5F5F5;
+roz:#fc5183;
+Dark blue - navbar, buttons, footer, background componente
+Cyan - dropdown menu, hover butoane
+#F5F5F5 - text
+Roz - padding,margins,border butoane, div-uri, hr-uri
+*/
+
+@font-face {
+	font-family: Roboto-Light;
+	src: url(./Roboto-fonts/Roboto-Light.ttf);
+}
+
+.footerNeeder {
+	background-color: #36506b;
+	color: #F5F5F5;
+	font-size: 1.5em;
+	font-family: Roboto-Light;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+  }
+
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 0%;
+}
+
+.bottom-info {
+	display: flex;
+	flex-direction: row;
+	justify-content: center
+}
+
+.bottom-info>* {
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.hrUp,.hrDown {
+	width: 100%;
+}
+.title1,.title2,.title3{
+	margin-top: 0.5em;
+	margin-bottom: 2em;
+}
+
+.Info {
+	top:10px;
+	width: 33%;
+}
+
+.Info article a:hover {
+	text-decoration: underline;
+	color: white;
+}
+
+.Info article a:visited{
+	text-decoration: underline;
+	color: white;
+}
+
+.Follow {
+	top:10px;
+	width: 33%;
+}
+
+.Contact {
+	top:10px;
+	margin-left: 30px;
+	margin-right: 30px;
+	text-align: center;
+}
+
+.Contact a:visited {
+	color: yellow;
+}
+
+.Contact a:link {
+	color: white;
+}
+
+.Info,.Contact,.Follow{
+	display: flex;
+	flex-direction: column;
+	align-items: center	;
+}
+
+.Info p, .Follow p, .Contact p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.Info article, .Contact article{
+	margin-bottom: 5%;
+}
+
+.Icons {
+	display: grid;
+	grid-template-columns: auto auto auto auto;
+}
+
+.Icons>* {
+	height: 30px;
+	width: 30px;
+	margin: 2px;
+}
+
+#fbIcon {
+	border-radius: 50%;
+}
+
+#ytIcon, #twIcon {
+	border-top-left-radius: 40%;
+	border-top-right-radius: 40%;
+	border-bottom-left-radius: 40%;
+	border-bottom-right-radius: 40%;
+	padding-top: 0%;
+}
+
+#istIcon {
+	border-radius: 30%;
+}
+
+#fbIcon:hover, #twIcon:hover, #ytIcon:hover, #istIcon:hover {
+	height: 40px;
+	width: 40px;
+	margin: 0;
+}
+@media screen and (max-width:1000px) and (max-height:1300px) {
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0%;
+	}
+	.Info,.Follow,.Contact{
+		width: 100%;
+		margin: 0;
+	}
+	.footer {
+		background-color: #36506b;
+		color: #F5F5F5;
+		font-size: 2vh;
+		font-family: Roboto-Light;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+	  }
+}
+
+@media screen and (max-width:1190px) {
+	.Contact article{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.footerNeeder {
+		background-color: #36506b;
+		color: #F5F5F5;
+		font-size: 2vh;
+		font-family: Roboto-Light;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+	  }
+	
+}
