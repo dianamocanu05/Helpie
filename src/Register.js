@@ -58,7 +58,7 @@ export default class Register extends Component {
     this.setState({
       error: false
     });
-    var url = 'https://users-bd.herokuapp.com/api/users/register';
+    var url = 'http://localhost:8000/api/users/register';
     var request = new Request(url, {
         method: 'POST',
         headers: {

@@ -66,7 +66,7 @@ export default class Login extends Component {
     //CHANGE LATER - ONLY FOR TESTING
     // var data = 'loggedin';
     // localStorage.setItem('token', data);
-    var url = 'https://users-bd.herokuapp.com/api/users/login';
+    var url = 'http://localhost:8000/api/users/login';
     var request = new Request(url, {
       method: 'POST',
       headers: {

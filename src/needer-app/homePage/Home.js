@@ -11,9 +11,8 @@ function Home() {
         în cadrul comunității. Această problemă poate fi rezolvată facil prin crearea unei platforme; aceasta va fi formată dintr-o pagină web și o
         aplicație mobile în cadrul căreia utilizatorului i se va pune la dispoziție un formular prin care va putea cere sau oferi ajutor.
         </p>
-        <Link className="form-button" to="/needer/form">Găsește ajutor!</Link>
       </header>
     </div>
   );
 }
-export default Home;
+export default Home;    

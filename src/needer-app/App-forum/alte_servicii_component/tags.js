@@ -20,7 +20,6 @@ const delimiters = [KeyCodes.comma, KeyCodes.enter];
 export default class Tags extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       //default exemple de tag-uri
       suggestions: suggestions,
@@ -63,11 +62,12 @@ export default class Tags extends React.Component {
 
   render() {
     const { suggestions } = this.state;
+    const {suggest} = this.props;
     return (
       <div>
         <ReactTags
           tags={this.props.tags}
-          suggestions={this.props.suggest}
+          suggestions={suggest}
           delimiters={delimiters}
           handleDelete={this.handleDelete}
           handleAddition={this.handleAddition}
